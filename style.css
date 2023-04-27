@@ -147,6 +147,15 @@ header button svg,
   background: var(--BLACK);
 }
 
+.soundWrapper input::-moz-range-thumb {
+  width: 1.6rem;
+  height: 1.6rem;
+
+  border: none;
+  background: var(--BLACK);
+  cursor: pointer;
+}
+
 .soundWrapper button svg {
   width: clamp(12rem, 12vw, 13.8rem);
 }
@@ -162,6 +171,10 @@ header button svg,
 
 .soundWrapper.on input::-webkit-slider-thumb {
   background-color: var(--WHITE);
+}
+
+.soundWrapper.on input::-moz-range-thumb {
+  background: var(--WHITE);
 }
 
 .soundWrapper.on svg path:nth-child(1) {
@@ -194,6 +207,10 @@ header button svg,
 
 .dark .soundWrapper input::-webkit-slider-thumb {
   background-color: var(--WHITE);
+}
+
+.dark .soundWrapper input::-moz-range-thumb {
+  background: var(--WHITE);
 }
 
 /* SOUND ON DARKMODE */
