@@ -1,0 +1,229 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --WHITE: #FFFFFF;
+  --BLACK: #323238;
+  --GRAY: #E1E1E6;
+  --BLUE: #02799D;
+
+  --BLACK-DARKMODE: #121214;
+  --BLACK-LIGHT-DARKMODE: #29292E;
+  --GRAY-DARKMODE: #c8c4cc;
+  --BLUE-DARKMODE: #0A3442;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
+
+  background-color: var(--WHITE);
+  color: var(--BLACK);
+
+  transition: all ease 300ms;
+}
+
+.hide {
+  display: none;
+}
+
+.Container {
+  min-height: 100vh;
+  margin: auto;
+
+  display: grid;
+  grid-template-rows: 1fr 10fr;
+
+  padding: 6rem 6rem;
+}
+
+header {
+  justify-self: end;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 15rem;
+
+  margin-bottom: 5rem;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+
+  cursor: pointer;
+
+  transition: all ease 300ms;
+}
+
+button:hover {
+  scale: 1.1;
+}
+
+#display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4.8rem;
+}
+
+header button svg,
+#display button svg {
+  width: clamp(2.6rem, 12vw, 4.8rem);
+}
+
+.timer {
+  display: flex;
+
+  font-weight: 500;
+  font-size: clamp(6rem, 6rem + 10vw, 12.6rem);
+  line-height: 14.8rem;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+}
+
+#sounds {
+  display: grid;
+  grid-template-areas: 
+  "A B"
+  "C D";
+  gap: 3.2rem;
+}
+
+.soundWrapper {
+  width: clamp(12rem, 10vw , 13.8rem);
+  height: 15.2rem;
+  
+  background: var(--GRAY);
+  border-radius: 2.4rem;
+
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+  justify-content: center;
+
+  transition: all ease 400ms;
+}
+
+.soundWrapper:hover {
+  scale: 1.1;
+}
+
+.soundWrapper input[type=range] {
+  -webkit-appearance: none;
+  appearance: none;
+
+  width: clamp(8rem, 10vw, 9rem);
+  height: .4rem;
+  margin: auto;
+
+  background-color: var(--BLACK);
+  border-radius: .5rem;
+
+  outline: none;
+}
+
+.soundWrapper input::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  
+  width: 1.6rem;
+  height: 1.6rem;
+  
+  border: none;
+  border-radius: 50%;
+  background: var(--BLACK);
+}
+
+.soundWrapper button svg {
+  width: clamp(12rem, 12vw, 13.8rem);
+}
+
+/* SOUND ON */
+.soundWrapper.on{
+  background-color: var(--BLUE);
+}
+
+.soundWrapper.on input[type=range] {
+  background-color: var(--WHITE);
+}
+
+.soundWrapper.on input::-webkit-slider-thumb {
+  background-color: var(--WHITE);
+}
+
+.soundWrapper.on svg path:nth-child(1) {
+  fill: var(--WHITE);
+  transition: all ease 400ms;
+}
+
+/* DARK MODE */
+.dark {
+  background-color: var(--BLACK-DARKMODE);
+  color: var(--WHITE);
+}
+
+.dark .controls svg path:nth-child(1) {
+  fill: var(--GRAY-DARKMODE);
+}
+
+.dark .soundWrapper {
+  background: var(--BLACK-LIGHT-DARKMODE);
+}
+
+.dark .soundWrapper svg path:nth-child(1) {
+  fill: var(--GRAY-DARKMODE);
+  transition: all ease 400ms;
+}
+
+.dark .soundWrapper input[type=range] {
+  background-color: var(--WHITE);
+}
+
+.dark .soundWrapper input::-webkit-slider-thumb {
+  background-color: var(--WHITE);
+}
+
+/* SOUND ON DARKMODE */
+.dark .soundWrapper.on {
+  background: var(--BLUE-DARKMODE);
+}
+
+.dark .soundWrapper.on svg path:nth-child(1) {
+  fill: var(--WHITE);
+  transition: all ease 400ms;
+}
+
+/* MEDIA */
+@media (max-width: 840px) {
+  .Container {
+    padding: 2rem;
+  }
+  
+  main {
+    gap: 5rem;
+    flex-wrap: wrap;
+
+    margin-bottom: 0rem;
+  }
+
+  #display {
+    gap: 2rem;
+  } 
+
+  #sounds {
+    gap: 2rem 3.2rem;
+  }
+}
